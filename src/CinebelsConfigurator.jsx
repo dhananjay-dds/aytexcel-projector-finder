@@ -83,7 +83,7 @@ function CinebelsConfigurator() {
       <div className="z-10 w-full max-w-4xl">
         <header className="mb-8 text-center">
           <img
-            src="/images/logo.png"
+            src="/images/logo-1.png"
             alt="Aytexcel"
             className="h-10 mx-auto mb-3"
           />
