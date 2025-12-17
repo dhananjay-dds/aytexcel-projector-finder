@@ -12,6 +12,12 @@ export default {
                     500: '#C5A028',
                     600: '#B08D20',
                 },
+                aytexcel: {
+                    blue: '#1c64f2', // Approximated 'Price Match' or 'Shop Now' blue
+                    text: '#1f2937', // Dark Gray/Black for text
+                    bg: '#ffffff',   // Clean White background
+                    purple: '#6b21a8' // Deep purple for accents
+                },
                 dark: {
                     900: '#0A0A0A', // Deep Black
                     800: '#121212', // Off Black

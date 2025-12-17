@@ -24,7 +24,7 @@ const LeadForm = ({ isOpen, onClose, product, selections, roomSize, recommendati
 
         // Construct the detailed message
         const message = `
-New Lead from Cinebels Configurator:
+New Lead from Aytexcel Configurator:
 
 User Details:
 Name: ${formData.name}
@@ -34,14 +34,12 @@ Email: ${formData.email}
 System Interest: ${formData.interest}
 
 Configuration Details:
-Usage: ${selections?.usage ? selections.usage.toUpperCase() : 'N/A'}
-Room Context: ${selections?.room ? selections.room.toUpperCase() : 'N/A'}
-Room Size: ${roomSize || 'N/A'}
+Usage: ${selections?.useCase ? selections.useCase.toUpperCase() : 'N/A'}
+Room Context: ${selections?.roomLight ? selections.roomLight.toUpperCase() : 'N/A'}
 Recommended Tier: ${selections?.budget ? selections.budget.toUpperCase() : 'N/A'}
 
 Recommendation:
 System: ${recommendation?.name || 'N/A'}
-Base Price Range: ${recommendation?.basePrice ? `₹${recommendation.basePrice.min} - ₹${recommendation.basePrice.max}` : 'N/A'}
         `.trim();
 
         // Web3Forms Submission
@@ -57,9 +55,9 @@ Base Price Range: ${recommendation?.basePrice ? `₹${recommendation.basePrice.m
                     name: formData.name,
                     phone: formData.phone,
                     email: formData.email,
-                    subject: "New Cinebels Lead - Configurator",
+                    subject: "New Aytexcel Lead - Configurator",
                     message: message,
-                    from_name: "Cinebels Configurator"
+                    from_name: "Aytexcel Configurator"
                 }),
             });
 
@@ -96,64 +94,64 @@ Base Price Range: ${recommendation?.basePrice ? `₹${recommendation.basePrice.m
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
+                className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
             >
                 <motion.div
-                    initial={{ scale: 0.9, opacity: 0 }}
+                    initial={{ scale: 0.95, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
-                    exit={{ scale: 0.9, opacity: 0 }}
-                    className="bg-dark-800 border border-dark-700 rounded-2xl p-8 max-w-md w-full relative shadow-2xl"
+                    exit={{ scale: 0.95, opacity: 0 }}
+                    className="bg-white border border-gray-100 rounded-xl p-8 max-w-md w-full relative shadow-2xl"
                 >
                     <button
                         onClick={onClose}
-                        className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors"
+                        className="absolute top-4 right-4 text-gray-400 hover:text-gray-900 transition-colors"
                     >
-                        <X size={24} />
+                        <X size={20} />
                     </button>
 
                     {status === 'success' ? (
                         <div className="text-center py-8">
-                            <div className="w-16 h-16 bg-green-500/20 text-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <div className="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
                                 <Check size={32} />
                             </div>
-                            <h3 className="text-2xl font-serif text-white mb-2">Request Received</h3>
-                            <p className="text-gray-400">
-                                Our audio expert will contact you shortly with your personalized proposal.
+                            <h3 className="text-2xl font-bold text-gray-900 mb-2">Request Received</h3>
+                            <p className="text-gray-600 mb-6">
+                                Our expert will contact you shortly with your personalized proposal.
                             </p>
                             <button
                                 onClick={onClose}
-                                className="mt-8 text-orange-400 hover:text-orange-500 text-sm uppercase tracking-wider"
+                                className="text-blue-600 hover:text-blue-700 font-medium text-sm"
                             >
-                                Close
+                                CLOSE
                             </button>
                         </div>
                     ) : (
                         <>
-                            <h3 className="text-2xl font-serif text-orange-400 mb-2">Request Proposal</h3>
-                            <p className="text-gray-400 text-sm mb-6">
-                                Get a detailed quote for <span className="text-white">{product}</span>.
+                            <h3 className="text-xl font-bold text-gray-900 mb-1">Request Proposal</h3>
+                            <p className="text-gray-500 text-sm mb-6">
+                                Get a detailed quote for <span className="font-semibold text-blue-600">{product}</span>.
                             </p>
 
                             <form onSubmit={handleSubmit} className="space-y-4">
                                 <input type="hidden" name="interest" value={formData.interest} />
 
                                 <div>
-                                    <label className="block text-xs uppercase tracking-wider text-gray-400 mb-1">Name</label>
+                                    <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Name</label>
                                     <input
                                         type="text"
                                         name="name"
                                         required
                                         value={formData.name}
                                         onChange={handleChange}
-                                        className="w-full bg-dark-900 border border-dark-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-orange-400 transition-colors"
+                                        className="w-full bg-white border border-gray-300 rounded-md px-4 py-2.5 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 transition-all placeholder:text-gray-300"
                                         placeholder="John Doe"
                                     />
                                 </div>
                                 <div>
-                                    <label className="block text-xs uppercase tracking-wider text-gray-400 mb-1">Phone</label>
+                                    <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Phone</label>
                                     <div className="relative">
                                         <div className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
-                                            <span className="text-gray-400 border-r border-dark-700 pr-3">+91</span>
+                                            <span className="text-gray-400 font-medium pr-2 border-r border-gray-200">+91</span>
                                         </div>
                                         <input
                                             type="tel"
@@ -163,20 +161,20 @@ Base Price Range: ${recommendation?.basePrice ? `₹${recommendation.basePrice.m
                                             onChange={handleChange}
                                             pattern="[0-9]{10}"
                                             maxLength="10"
-                                            className="w-full bg-dark-900 border border-dark-700 rounded-lg pl-16 pr-4 py-3 text-white focus:outline-none focus:border-orange-400 transition-colors"
+                                            className="w-full bg-white border border-gray-300 rounded-md pl-14 pr-4 py-2.5 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 transition-all placeholder:text-gray-300"
                                             placeholder="98765 43210"
                                         />
                                     </div>
                                 </div>
                                 <div>
-                                    <label className="block text-xs uppercase tracking-wider text-gray-400 mb-1">Email</label>
+                                    <label className="block text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1">Email</label>
                                     <input
                                         type="email"
                                         name="email"
                                         required
                                         value={formData.email}
                                         onChange={handleChange}
-                                        className="w-full bg-dark-900 border border-dark-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-orange-400 transition-colors"
+                                        className="w-full bg-white border border-gray-300 rounded-md px-4 py-2.5 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-600/20 focus:border-blue-600 transition-all placeholder:text-gray-300"
                                         placeholder="john@example.com"
                                     />
                                 </div>
@@ -184,11 +182,11 @@ Base Price Range: ${recommendation?.basePrice ? `₹${recommendation.basePrice.m
                                 <button
                                     type="submit"
                                     disabled={status === 'sending'}
-                                    className="w-full bg-orange-400 text-black font-medium py-4 rounded-lg mt-4 hover:bg-orange-500 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                                    className="w-full bg-blue-600 text-white font-semibold py-3 rounded-md mt-2 hover:bg-blue-700 transition-colors disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-sm"
                                 >
                                     {status === 'sending' ? (
                                         <>
-                                            <div className="w-4 h-4 border-2 border-black/30 border-t-black rounded-full animate-spin" />
+                                            <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
                                             Sending...
                                         </>
                                     ) : (

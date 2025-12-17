@@ -4,8 +4,13 @@
 
 @layer base {
   body {
-    @apply bg-dark-900 text-white antialiased;
-  }
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: #ffffff;
+  color: #1f2937;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
 }
 
 /* Custom Scrollbar for luxury feel */
